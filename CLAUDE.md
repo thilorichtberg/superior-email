@@ -82,10 +82,15 @@ The app runs on `http://localhost:8080` by default.
 
 - **Milestone 0 — Skeleton: COMPLETE.** Spring Boot app starts cleanly. `GET /health` returns
   `{"status":"ok"}` via `HealthController.java`. Committed and pushed.
-- **Milestone 1 — Connect to a real mailbox: NOT STARTED.** Next up. Plan: add Jakarta Mail,
-  connect to a throwaway Gmail account via IMAP using an app password (OAuth comes later, in
-  Milestone 5), list the 10 newest INBOX subjects, expose as
-  `GET /accounts/{id}/messages`.
+- **Milestone 1 — Connect to a real mailbox: COMPLETE.**
+  - Day 1: throwaway Gmail account created, 2FA + app password set up, Jakarta Mail
+    dependency added, real credentials isolated in gitignored
+    `application-local.properties`.
+  - Day 2: verified real IMAP connection via temporary `MailDemoRunner` (deleted
+    once confirmed).
+  - Day 3: `GET /accounts/{id}/messages` implemented, returning a list of
+    `EmailSummary` records (`from`, `subject`, `receivedAt`) as JSON, backed by
+    `MailService.fetchRecent(...)`. Covered by a `@WebMvcTest` with `MailService`
 - **Milestone 2 — Persist & model:** not started. Will introduce `Account`, `Message`,
   `Thread`, `Label` entities and real Postgres via Docker (currently disabled via
   `spring.autoconfigure.exclude` in `application.properties` — that line needs to be removed

@@ -40,3 +40,5 @@ postman/
 
 ### Local secrets ###
 application-local.properties
+
+### Temporary files TDB ###
