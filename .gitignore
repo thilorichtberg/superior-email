@@ -37,3 +37,6 @@ out/
 .vscode/
 .postman/
 postman/
+
+### Local secrets ###
+application-local.properties
