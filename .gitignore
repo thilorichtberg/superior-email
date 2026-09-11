@@ -42,3 +42,4 @@ postman/
 application-local.properties
 
 ### Temporary files TDB ###
+*Zone.Identifier*
